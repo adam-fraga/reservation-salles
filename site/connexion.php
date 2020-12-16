@@ -10,7 +10,7 @@
 
     <title>Document</title>
 </head>
-<body class="">
+<body>
 <?php include 'header.php' ?>
 <main class="main">
     <section class="pesentation container-col">

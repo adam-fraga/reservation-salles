@@ -54,9 +54,9 @@
         <p> SYB met à votre disposition plusieurs salles dans le cadre de vos différentes activités professionnels.
             en effet vous retrouverez sur notre site un outil de reservation simple et intuitif en vu de réserver une
             salle
-            moderne et éclairer idéal pour le coworking, une salle de conférence pour vos meeting ou autres évements du
+            moderne et éclairé idéal pour le coworking, une salle de conférence pour vos meeting ou autres évements du
             genre et
-            pour finir une salle à l'ambiance sombre et insonorisé. Enfin vous l'aurez compris nos salles sont dedié à
+            pour finir une salle à l'ambiance sombre et insonorisé. Enfin vous l'aurez compris nos salles sont dediées à
             un usage
             professionnel pour toute premiere reservation rendez vous dans la
             rubrique
@@ -114,7 +114,6 @@
             <li><a  class="font-light" href="#">Nous contacter</a></li>
         </ul>
     </nav>
-    <aside class="copyright"><small>© Adam FRAGA</small></aside>
 </footer>
 </body>
 </html>

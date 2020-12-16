@@ -1,3 +1,33 @@
+<!--PHP-->
+<?php
+//Bool permetant style message erreur ou succes
+$fill = NULL;
+//Bool  check login longueur
+$loginLength = NULL;
+
+//    Verification remplissage des champs
+if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['confpass'])) {
+//        Stockage infos utilisateur
+    $userLogin = htmlspecialchars($_POST['login']);
+    $userPassword = htmlspecialchars($_POST['password']);
+    $userConfpass = htmlspecialchars($_POST['confpass']);
+    $fill = true;
+    //    Verif longueur login
+    if (strlen($userLogin) < 50) {
+        $loginLength = true;
+    } else {
+        $loginLength = "Votre nom d'utilisateur est beaucoup trop long!";
+    }
+} else {
+    $fill = "Tout les champs doivent être remplit!";
+}
+
+//Action boutton + control mot de passe = confpass + longueur login + case non vide
+if (isset($_POST['submit']) && $fill == true && $loginLength == true && $userPassword == $userConfpass) {
+
+}
+?>
+<!--HTML-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,18 +46,18 @@
     <section class="pesentation container-col">
         <h1 class="title-main">NOUS REJOINDRE</h1>
         <p>Pour pouvoir éffectuer votre premiere reservation remplissez le formulaire d'inscription ci dessous,
-        Inutile de vous précisez que le Staff ne vous demandera jamais vos informations de connexion,
-        Alors gardez les précieusement! en ésperant vous voir d'ici peu!</p>
+            Inutile de vous précisez que le Staff ne vous demandera jamais vos informations de connexion,
+            Alors gardez les précieusement! en ésperant vous voir d'ici peu!</p>
     </section>
     <section class="container-col bloc-inscription decoration-bloc">
         <h2 class="title-main font-light">Formulaire d'inscription</h2>
         <form action="" method="post" class="form-inscription container-col">
             <label for="login" class="label font-light">Votre identifiant</label>
-            <input type="text" name="login" id="login" placeholder="Entrez votre identifiant">
-            <label for="password" class="label font-light">Vcootre mot de passe</label>
-            <input type="password" name="password" id="password" value="password">
+            <input type="text" name="login" id="login" required placeholder="Entrez votre identifiant">
+            <label for="password" class="label font-light">Votre mot de passe</label>
+            <input type="password" name="password" id="password" value="password" required>
             <label for="confpass" class="label font-light">Confirmez votre mot de passe</label>
-            <input type="password" name="confpass" id="confpass" value="password">
+            <input type="password" name="confpass" id="confpass" required value="password">
             <button class="button" name="submit" type="submit">Envoyer</button>
         </form>
     </section>

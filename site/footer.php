@@ -7,5 +7,4 @@
             <li><a class="font-light"  href="#">Me contacter</a></li>
         </ul>
     </nav>
-    <aside class="copyright"> <small>© Adam FRAGA</small> </aside>
 </footer>
