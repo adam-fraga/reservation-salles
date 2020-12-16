@@ -1,0 +1,220 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*FONT*/
+@font-face {
+    font-family: "Dead Revolution";
+    src: url("font/Dead Revolution.otf");
+}
+/*------------------------------------------!*BACKGROUND & EFFECT *!---------------------------------*/
+body{
+    background: center center no-repeat url("../style/img/White-vector.jpg");
+    background-size: cover;
+}
+.decoration-bloc{
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px black;
+}
+.font-light{
+    color: whitesmoke;
+    text-shadow: 2px 2px 2px black;
+}
+
+/**------------------------------------------!*BACKGROUND *!---------------------------------*!*/
+/*HEADER*/
+.header {
+    width: 100%;
+    height: 75px;
+    font-family: "Dead Revolution", serif;
+}
+
+/*Navbar*/
+.nav {
+    background:center center no-repeat url("img/Black-vector.jpg");
+    background-size:cover;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    box-shadow: 5px 5px 10px black;
+}
+
+.menu {
+
+    padding: 0;
+    border: 0;
+    border-bottom: .5px solid black;
+}
+
+.menu > li {
+
+    width: 200px;
+    border-left: .5px solid black;
+
+
+}
+
+.menu, .sous-menu > ul, li {
+    list-style-type: none;
+    height: 100%;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.sous-menu {
+    background:center center no-repeat url("img/Black-vector.jpg");
+    background-size: 700px;
+    position: absolute;
+    width: 200px;
+    z-index: 1000;
+    border: .5px black solid;
+    display: none;
+    padding: 10px;
+box-shadow: black 5px 5px 10px;
+}
+
+.sous-menu li {
+
+    border-top: .1px black solid;
+    padding: 5px;
+}
+
+.sous-menu li a {
+    font-size: 1em;
+    opacity: .7;
+    text-shadow: black 2px 2px 2px;
+}
+.sous-menu li a:hover
+{
+    text-shadow: 0px 0px 5px whitesmoke;
+    transition: 1s;
+}
+
+.sous-menu li:first-child {
+    border-top: none;
+}
+
+.sous-menu li:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.item-menu, .item-sous-menu {
+    text-align: center;
+    line-height: 50px;
+}
+
+/*AFFICHER SOUS MENU USER*/
+.menu > .link-user:hover .sm-user {
+    display: block;
+}
+
+/*AFFICHER SOUS MENU Reservation*/
+.menu > .link-reservation:hover .sm-reservation {
+    display: block;
+}
+
+/*BOUTTON*/
+.button{
+    width: 100px;
+    height: 50px;
+    background: limegreen;
+    border-radius: 5px;
+    margin: 10px auto;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px black;
+    opacity: .8;
+    border-radius: 50%;
+}
+.button:hover{
+    opacity: 1;
+    transition: .5s;
+}
+.button-logout {
+    height: 100%;
+    padding: 10px;
+    background: red;
+    border-radius: 5px;
+    font-weight: bold;
+    opacity: .8;
+}
+.button-logout:hover{
+opacity: 1;
+    transition: .5s;
+}
+
+.container-tools {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-end;
+}
+
+/*------------------------------------------FIN MENU DEROULANT------------------------------*/
+
+/*STRUCTURE SITE*/
+section > p {
+    padding: 50px;
+    text-align: center;
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    width: 85%;
+}
+
+.container-card {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.space-vertical{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+/*TITRE*/
+.title-main{
+    font-family: "Dead Revolution", serif;
+    margin:20px auto;
+}
+
+/*FOOTER*/
+.footer {
+    padding-top: 10px;
+    background:center center no-repeat url("img/Black-vector.jpg");
+    background-size:cover;
+    margin: 200px 0 0 0;
+    width: 100%;
+    box-shadow: 2px -2px 10px black;
+
+}
+
+.footer-menu {
+    width: 80vw;
+    justify-content: space-evenly;
+}
+
+.footer-menu > li > a {
+text-decoration: none;
+}
+
+.copyright {
+    margin-top: 20px;
+}

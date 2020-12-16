@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style/index.css">
     <link rel="stylesheet" href="style/global.css">
     <script src="https://kit.fontawesome.com/a95f1c7873.js" crossorigin="anonymous"></script>
-    <title>Life-Path</title>
+    <title>Room</title>
 </head>
 <body>
 <!--HEADER SITE-->
@@ -17,7 +17,7 @@
     <nav class="nav">
         <!--        MENU -->
         <ul class="menu container-row">
-            <li class="item-menu link-user"><a href="#"><i class="fas fa-user">User</i></a>
+            <li class="item-menu link-user"><a href="#">User</a>
                 <!--            SOUS MENU UTILISATEUR-->
                 <ul class="sous-menu sm-user">
                     <li class="item-sous-menu"><a href="site/inscription.php">Inscription</a></li>
@@ -25,18 +25,18 @@
                     <li class="item-sous-menu"><a href="site/profil.php">Mon Profil</a></li>
                 </ul>
             </li>
-            <li class="item-menu link-reservation"><a href="#"><i class="far fa-calendar-plus">Réservation</i></a>
+            <li class="item-menu link-reservation"><a href="#">Reservation</a>
                 <!--            SOUS MENU RESERVATION-->
                 <ul class="sous-menu sm-reservation">
                     <li class="item-sous-menu"><a href="site/planing.php">Planing</a></li>
-                    <li class="item-sous-menu"><a href="site/reservation-form.php">Réserver</a></li>
-                    <li class="item-sous-menu"><a href="site/reservation.php">Mes réservations</a></li>
+                    <li class="item-sous-menu"><a href="site/reservation-form.php">Reserver</a></li>
+                    <li class="item-sous-menu"><a href="site/reservation.php">Mes reservations</a></li>
 
 
                 </ul>
             </li>
             <form action="" method="post" class="container-tools">
-                <button class="button button-logout">Déconnexion</button>
+                <button class="button-logout"><i class="fas fa-sign-out-alt">Deconnexion</i></button>
             </form>
         </ul>
 
@@ -44,49 +44,64 @@
 </header>
 <!--Main content-->
 <!--TITRE SITE-->
-<h1 class="main-title">CODING SCHOOL</h1>
+<h1 class="main-title-index title-main">SYB ROOM</h1>
 <main class="main">
     <!--    BANNIERE-->
     <div class="container-large banniere"></div>
     <!--    Section presentation du site-->
     <section class="presentation container-col">
-        <h2 class="title">Lorem</h2>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, iste mollitia numquam officia quaerat
-            voluptas! Alias aperiam at beatae dolor doloribus ducimus ea et ex, hic illo minus sit tempora. Lorem ipsum
-            dolor sit amet, consectetur adipisicing elit. Accusantium amet aut autem dolore doloremque ea eius harum,
-            impedit incidunt iure labore magni maiores neque nostrum nulla obcaecati odit quaerat tempora.
+        <h2 class="title-main">Swap your brain</h2>
+        <p> SYB met à votre disposition plusieurs salles dans le cadre de vos différentes activités professionnels.
+            en effet vous retrouverez sur notre site un outil de reservation simple et intuitif en vu de réserver une
+            salle
+            moderne et éclairer idéal pour le coworking, une salle de conférence pour vos meeting ou autres évements du
+            genre et
+            pour finir une salle à l'ambiance sombre et insonorisé. Enfin vous l'aurez compris nos salles sont dedié à
+            un usage
+            professionnel pour toute premiere reservation rendez vous dans la
+            rubrique
+            inscription pour creer un compte puis pour vous connecter!
         </p>
 
     </section>
     <!--    Presentation de la formation-->
     <section class="presentation-formation container-col">
-        <h2 class="title">Les différentes salles</h2>
+        <h2 class="title-main">Nos salles</h2>
         <div class="container-card">
             <!--            CARD-->
-            <div class="card ">
-                <h3 class="title">Salle de Coworking</h3>
-                <article class="card-content">
+            <article class="card decoration-bloc">
+                <h3 class="title-main font-light">Salle de Coworking</h3>
+                <div class="pics-bloc">
+                <img class="pics" src="style/img/coworking%20room.jfif" alt="salle de conférence">
+        </div>
+                <p class="font-light">
                     Contenue card 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloremque eius
                     illo impedit iste magni modi natus nisi perferendis rem sint, sunt vitae! Aut cupiditate hic
                     officia, possimus quae voluptates!
-                </article>
-            </div>
-            <div class="card ">
-                <h3 class="title">Black Room</h3>
-                <article class="card-content">
+                </p>
+            </article>
+            <article class="card decoration-bloc">
+                <h3 class="title-main font-light">Salle de conference</h3>
+                <div class="pics-bloc">
+                    <img class="pics" src="style/img/conf-room.jfif" alt="salle de conférence">
+                </div>
+                <p class="font-light">
                     Contenue card 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloremque eius
                     illo impedit iste magni modi natus nisi perferendis rem sint, sunt vitae! Aut cupiditate hic
                     officia, possimus quae voluptates!
-                </article>
-            </div>
-            <div class="card ">
-                <h3 class="title">Le Bordel</h3>
-                <article class="card-content">
+                </p>
+            </article>
+            <article class="card decoration-bloc">
+                <h3 class="title-main font-light">Dark Room</h3>
+                <div class="pics-bloc">
+                    <img class="pics" src="style/img/photo-1584670380670-28f0d4cabb06.jfif" alt="Dark room">
+                </div>
+                <p class="font-light">
                     Contenue card 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloremque eius
                     illo impedit iste magni modi natus nisi perferendis rem sint, sunt vitae! Aut cupiditate hic
                     officia, possimus quae voluptates!
-                </article>
-            </div>
+                </p>
+            </article>
         </div>
     </section>
 </main>
@@ -94,9 +109,9 @@
 <footer class="footer container-col">
     <nav class="foot-nav">
         <ul class="footer-menu container-row">
-            <li><a href="#">Me suivre sur les réseaux</a></li>
-            <li><a href="#">Liens externes</a></li>
-            <li><a href="#">Me contacter</a></li>
+            <li><a class="font-light" href="#">Nous suivre sur les réseaux</a></li>
+            <li><a  class="font-light" href="#">Liens externes</a></li>
+            <li><a  class="font-light" href="#">Nous contacter</a></li>
         </ul>
     </nav>
     <aside class="copyright"><small>© Adam FRAGA</small></aside>

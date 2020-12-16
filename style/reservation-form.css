@@ -1,0 +1,27 @@
+.bloc-resa {
+    justify-content: space-evenly;
+    height: 650px;
+    width: 40vw;
+    margin: 30px auto;
+    padding-top: 30px;
+    background: center center no-repeat url("img/Black-vector.jpg");
+}
+
+.form-resa > input{
+    width: 50%;
+    height: 50px;
+    box-shadow: 2px 2px 5px black;
+    margin: 10px auto;
+    border: 4px double black;
+
+    text-align: center;
+}
+textarea {
+    text-align: center;
+    box-shadow: 2px 2px 5px black;
+    height: 150px;
+    width: 70%;
+    margin: 10px auto;
+    border: 4px double black;
+    font-size: 1.2em;
+}

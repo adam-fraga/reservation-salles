@@ -1,0 +1,63 @@
+
+/*MAIN TITRE*/
+.main-title-index {
+    padding: 15px;
+    width: 15%;
+    height: 75px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/*BANNIERE*/
+.banniere {
+    border: 2px solid black;
+    width: 100%;
+    height: 500px;
+    background: no-repeat url("img/code.jpg");
+    background-size: cover;
+    background-position-y: -200px;
+    margin: 30px auto;
+}
+
+/*PRESENTATION SITE*/
+
+.presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+    height: 250px;
+}
+
+/*CARD*/
+.card {
+    background: rgba(0,0,0,.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 25%;
+    padding: 20px;
+}
+.card > p{
+    margin:10px;
+    text-align: justify;
+}
+    /*IMAGE*/
+.pics-bloc {
+
+    margin: 10px auto;
+    filter: contrast(90%);
+    width: 100%;
+    height: 200px;
+}
+.pics {
+    border: .3px solid black;
+    box-shadow:  2px 2px 2px black;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}

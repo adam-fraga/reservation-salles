@@ -1,0 +1,30 @@
+.bloc-inscription {
+    justify-content: space-evenly;
+    height: 500px;
+    width: 40vw;
+    margin: 30px auto;
+    padding-top: 30px;
+    background: center center no-repeat url("img/Black-vector.jpg");
+}
+
+.form-inscription > input {
+    width: 50%;
+    height: 50px;
+    box-shadow: 2px 2px 5px black;
+    margin: 10px auto;
+    border: 4px double black;
+    font-size: 1.2em;
+    text-align: center;
+}
+.label{
+
+}
+.button-inscription{
+    width: 100px;
+    height: 50px;
+    background: limegreen;
+    border-radius: 5px;
+    margin: 10px auto;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px black;
+}
