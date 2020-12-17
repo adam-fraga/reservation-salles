@@ -36,7 +36,7 @@
                 </ul>
             </li>
             <form action="" method="post" class="container-tools">
-                <button class="button-logout"><i class="fas fa-sign-out-alt">Deconnexion</i></button>
+                <button class="button-logout"><i class="fas fa-sign-out-alt"></i></button>
             </form>
         </ul>
 
@@ -75,9 +75,8 @@
                 <img class="pics" src="style/img/coworking%20room.jfif" alt="salle de conférence">
         </div>
                 <p class="font-light">
-                    Contenue card 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloremque eius
-                    illo impedit iste magni modi natus nisi perferendis rem sint, sunt vitae! Aut cupiditate hic
-                    officia, possimus quae voluptates!
+                    Salle dediée au travail de groupe vous pouvez la privatisé mais son concept vise à travailler en groupe
+                    échanger avec vos collaborateurs.
                 </p>
             </article>
             <article class="card decoration-bloc">
@@ -86,9 +85,8 @@
                     <img class="pics" src="style/img/conf-room.jfif" alt="salle de conférence">
                 </div>
                 <p class="font-light">
-                    Contenue card 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloremque eius
-                    illo impedit iste magni modi natus nisi perferendis rem sint, sunt vitae! Aut cupiditate hic
-                    officia, possimus quae voluptates!
+                    La salle de conférence est mise à votre disposition dans le cadre de meet up ou comme son nom l'indique de conference
+                    sa capacité d'accueil est de 160 personnes.
                 </p>
             </article>
             <article class="card decoration-bloc">
@@ -97,10 +95,8 @@
                     <img class="pics" src="style/img/photo-1584670380670-28f0d4cabb06.jfif" alt="Dark room">
                 </div>
                 <p class="font-light">
-                    Contenue card 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloremque eius
-                    illo impedit iste magni modi natus nisi perferendis rem sint, sunt vitae! Aut cupiditate hic
-                    officia, possimus quae voluptates!
-                </p>
+                    Une ambiance tamisé pour un travail en petit groupe ou en solo la Dark room vous permettra de rester concentrer
+                et de vous plonger dans le calme le plus total.</p>
             </article>
         </div>
     </section>

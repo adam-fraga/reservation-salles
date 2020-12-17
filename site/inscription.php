@@ -1,5 +1,7 @@
 <!--PHP-->
 <?php
+//Inclusion DB
+require '../config/db.php';
 //Bool permetant style message erreur ou succes
 $fill = NULL;
 //Bool  check login longueur
@@ -24,7 +26,13 @@ if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['conf
 
 //Action boutton + control mot de passe = confpass + longueur login + case non vide
 if (isset($_POST['submit']) && $fill == true && $loginLength == true && $userPassword == $userConfpass) {
-
+    $userPassword = password_hash($userPassword,CRYPT_BLOWFISH);
+    $sql = "INSERT INTO utilisateurs (login,password) VALUES (?,?)";
+    $stmt = $PDO->prepare($sql);
+    $stmt->bindParam(1, $userLogin);
+    $stmt->bindParam(2, $userPassword);
+    $stmt->execute();
+    header('location:connexion.php');
 }
 ?>
 <!--HTML-->

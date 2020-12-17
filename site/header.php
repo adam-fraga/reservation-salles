@@ -34,7 +34,7 @@
                 </ul>
             </li>
             <form action="" method="post" class="container-tools">
-                <button class="button-logout"><i class="fas fa-sign-out-alt">Deconnexion</i></button>
+                <button class="button-logout"><i class="fas fa-sign-out-alt"></i></button>
             </form>
         </ul>
 
