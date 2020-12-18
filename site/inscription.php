@@ -1,38 +1,12 @@
 <!--PHP-->
 <?php
-//Inclusion DB
-require '../config/db.php';
-//Bool permetant style message erreur ou succes
-$fill = NULL;
-//Bool  check login longueur
-$loginLength = NULL;
+//Inclusion DB et fichier class
+require '../config/db/db.php';
+require '../config/class/class.php';
 
-//    Verification remplissage des champs
-if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['confpass'])) {
-//        Stockage infos utilisateur
-    $userLogin = htmlspecialchars($_POST['login']);
-    $userPassword = htmlspecialchars($_POST['password']);
-    $userConfpass = htmlspecialchars($_POST['confpass']);
-    $fill = true;
-    //    Verif longueur login
-    if (strlen($userLogin) < 50) {
-        $loginLength = true;
-    } else {
-        $loginLength = "Votre nom d'utilisateur est beaucoup trop long!";
-    }
-} else {
-    $fill = "Tout les champs doivent être remplit!";
-}
-
-//Action boutton + control mot de passe = confpass + longueur login + case non vide
-if (isset($_POST['submit']) && $fill == true && $loginLength == true && $userPassword == $userConfpass) {
-    $userPassword = password_hash($userPassword,CRYPT_BLOWFISH);
-    $sql = "INSERT INTO utilisateurs (login,password) VALUES (?,?)";
-    $stmt = $PDO->prepare($sql);
-    $stmt->bindParam(1, $userLogin);
-    $stmt->bindParam(2, $userPassword);
-    $stmt->execute();
-    header('location:connexion.php');
+if (isset($_POST['submit'])) {
+    $user = new User();
+    $message = $user->inscription($_POST['login'], $_POST['password'], $_POST['confpassword']);
 }
 ?>
 <!--HTML-->
@@ -65,8 +39,11 @@ if (isset($_POST['submit']) && $fill == true && $loginLength == true && $userPas
             <label for="password" class="label font-light">Votre mot de passe</label>
             <input type="password" name="password" id="password" value="password" required>
             <label for="confpass" class="label font-light">Confirmez votre mot de passe</label>
-            <input type="password" name="confpass" id="confpass" required value="password">
+            <input type="password" name="confpassword" id="confpass" required value="password">
             <button class="button" name="submit" type="submit">Envoyer</button>
+            <?php if (isset($_POST['submit'])) {
+                echo '<p>' . $message . '</p>';
+            } ?>
         </form>
     </section>
 </main>
