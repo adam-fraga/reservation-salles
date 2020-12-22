@@ -1,0 +1,52 @@
+/*CALENDAR*/
+.calendar {
+    width: 800px;
+    height: 80vh;
+
+    margin: 50px auto;
+    text-align: center;
+}
+
+.calendar td {
+    padding: 20px;
+    border: 1px grey solid;
+    vertical-align: top;
+    border-collapse: collapse;
+}
+
+.calendar__weekday {
+    font-weight: bold;
+    color: black;
+}
+
+.calendar__day {
+    font-size: .8em;
+}
+
+.calendar__othermonth .calendar__day {
+    opacity: .3;
+}
+
+.box-cal {
+    padding: 10px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box-controller {
+    width: 80px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*BOUTTON CONTROLLER*/
+.btn-ctrl .fas {
+    color: black;
+    font-size: 2em;
+}
+.btn-ctrl .fas:hover {
+    color: dodgerblue;
+    transition: .5s;
+}

@@ -7,12 +7,15 @@ require '../config/db/db.php';
 require '../config/class/class.php';
 if (isset($_POST['submit'])) {
     $user = new User();
-    $message = $user->connect($_POST['login'], $_POST['password']);
+    $user->connect($_POST['login'], $_POST['password']);
     $_SESSION['UserId'] = $user->getId();
     $_SESSION['UserLogin'] = $user->getLogin();
 }
+var_dump('SESSION');
+var_dump($_SESSION);
+var_dump('POST');
+var_dump($_POST);
 ?>
-
 <!--HTML-->
 <!doctype html>
 <html lang="en">

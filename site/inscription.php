@@ -1,12 +1,13 @@
 <!--PHP-->
 <?php
+session_start();
 //Inclusion DB et fichier class
 require '../config/db/db.php';
 require '../config/class/class.php';
-
+//CONDITION
 if (isset($_POST['submit'])) {
     $user = new User();
-    $message = $user->inscription($_POST['login'], $_POST['password'], $_POST['confpassword']);
+    $user->inscription($_POST['login'], $_POST['password'], $_POST['confpassword']);
 }
 ?>
 <!--HTML-->
@@ -41,9 +42,6 @@ if (isset($_POST['submit'])) {
             <label for="confpass" class="label font-light">Confirmez votre mot de passe</label>
             <input type="password" name="confpassword" id="confpass" required value="password">
             <button class="button" name="submit" type="submit">Envoyer</button>
-            <?php if (isset($_POST['submit'])) {
-                echo '<p>' . $message . '</p>';
-            } ?>
         </form>
     </section>
 </main>

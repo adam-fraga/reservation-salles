@@ -28,7 +28,7 @@
             <li class="item-menu link-reservation"><a href="#">Reservation</a>
                 <!--            SOUS MENU RESERVATION-->
                 <ul class="sous-menu sm-reservation">
-                    <li class="item-sous-menu"><a href="site/planing.php">Planing</a></li>
+                    <li class="item-sous-menu"><a href="site/planning.php">Planning</a></li>
                     <li class="item-sous-menu"><a href="site/reservation-form.php">Reserver</a></li>
                     <li class="item-sous-menu"><a href="site/reservation.php">Mes reservations</a></li>
 

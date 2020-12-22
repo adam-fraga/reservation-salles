@@ -7,10 +7,14 @@ require '../config/db/db.php';
 if (isset($_POST['submit']))
 {
     $user = new User();
+    $user->setLogin($_POST['login']);
+    $user->setId($_SESSION['UserId']);
     $user->profil($_POST['login'],$_POST['password']);
 }
-var_dump($user);
+var_dump('SESSION');
 var_dump($_SESSION);
+var_dump('POST');
+var_dump($_POST);
 ?>
 
 

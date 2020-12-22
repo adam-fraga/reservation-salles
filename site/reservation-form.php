@@ -1,7 +1,19 @@
 <?php
 session_start();
+include '../config/class/class.php';
+include '../config/db/db.php';
 ?>
-
+<?php
+if (isset($_POST['submit']) && isset($_SESSION['UserId']))
+{
+    $Event = new Event();
+    $Event->create($_POST['titre'],$_POST['description'],$_POST['date-debut'],$_POST['date-fin'],$_SESSION['UserId']);
+}
+var_dump('SESSION');
+var_dump($_SESSION);
+var_dump('POST');
+var_dump($_POST);
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,7 +49,7 @@ session_start();
 
             <label for="date-fin" class="label font-light">Date et heure de fin</label>
             <input type="datetime-local" name="date-fin" id="date-fin" value="2020-01-12T19:30">
-            <button class="button">Envoyer</button>
+            <button class="button" type="submit" name="submit">Envoyer</button>
         </form>
     </section>
 </main>
