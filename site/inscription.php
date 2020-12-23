@@ -1,14 +1,6 @@
 <!--PHP-->
 <?php
-session_start();
-//Inclusion DB et fichier class
-require '../config/db/db.php';
-require '../config/class/class.php';
-//CONDITION
-if (isset($_POST['submit'])) {
-    $user = new User();
-    $user->inscription($_POST['login'], $_POST['password'], $_POST['confpassword']);
-}
+
 ?>
 <!--HTML-->
 <!doctype html>

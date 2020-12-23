@@ -1,20 +1,6 @@
 <!--PHP-->
 <?php
 session_start();
-//inclusion db
-require '../config/db/db.php';
-//Inclusion class utilisateur
-require '../config/class/class.php';
-if (isset($_POST['submit'])) {
-    $user = new User();
-    $user->connect($_POST['login'], $_POST['password']);
-    $_SESSION['UserId'] = $user->getId();
-    $_SESSION['UserLogin'] = $user->getLogin();
-}
-var_dump('SESSION');
-var_dump($_SESSION);
-var_dump('POST');
-var_dump($_POST);
 ?>
 <!--HTML-->
 <!doctype html>

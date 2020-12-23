@@ -1,23 +1,6 @@
 <?php
 session_start();
-//Inclusion fichier DB + Classe
-require '../config/class/class.php';
-require '../config/db/db.php';
-//Si action boutton
-if (isset($_POST['submit']))
-{
-    $user = new User();
-    $user->setLogin($_POST['login']);
-    $user->setId($_SESSION['UserId']);
-    $user->profil($_POST['login'],$_POST['password']);
-}
-var_dump('SESSION');
-var_dump($_SESSION);
-var_dump('POST');
-var_dump($_POST);
 ?>
-
-
 <!doctype html>
 <html lang="en">
 <head>
