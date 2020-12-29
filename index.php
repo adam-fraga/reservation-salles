@@ -20,17 +20,17 @@
             <li class="item-menu link-user"><a href="#">User</a>
                 <!--            SOUS MENU UTILISATEUR-->
                 <ul class="sous-menu sm-user">
-                    <li class="item-sous-menu"><a href="site/inscription.php">Inscription</a></li>
-                    <li class="item-sous-menu"><a href="site/connexion.php">Connexion</a></li>
-                    <li class="item-sous-menu"><a href="site/profil.php">Mon Profil</a></li>
+                    <li class="item-sous-menu"><a href="public/inscription.php">Inscription</a></li>
+                    <li class="item-sous-menu"><a href="public/connexion.php">Connexion</a></li>
+                    <li class="item-sous-menu"><a href="public/profil.php">Mon Profil</a></li>
                 </ul>
             </li>
             <li class="item-menu link-reservation"><a href="#">Reservation</a>
                 <!--            SOUS MENU RESERVATION-->
                 <ul class="sous-menu sm-reservation">
-                    <li class="item-sous-menu"><a href="site/planning.php">Planning</a></li>
-                    <li class="item-sous-menu"><a href="site/reservation-form.php">Reserver</a></li>
-                    <li class="item-sous-menu"><a href="site/reservation.php">Mes reservations</a></li>
+                    <li class="item-sous-menu"><a href="public/planning.php">Planning</a></li>
+                    <li class="item-sous-menu"><a href="public/reservation-form.php">Reserver</a></li>
+                    <li class="item-sous-menu"><a href="public/reservation.php">Mes reservations</a></li>
 
 
                 </ul>

@@ -1,6 +1,21 @@
 <?php
 session_start();
+//Chargeur de classes
+function includeClass($myclass)
+{
+    require '../config/class/' . $myclass . '.php';
+}
+
+spl_autoload_register('includeClass');
+includeClass('Week');
 ?>
+<?php $month = new Month();
+var_dump($month);?>
+<?php $day = $month->getFirstDay()->modify('last monday');
+var_dump($day);?>
+<?php $days = $month->getDay();
+var_dump($days); ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -35,7 +50,8 @@ session_start();
                        class="btn-ctrl"><i class="fas fa-arrow-alt-circle-right"></i></a>
                 </div>
             </div>
-            <table class=" calendar">
+            <table class="calendarWeek">
+
             </table>
         </div>
     </section>
