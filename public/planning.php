@@ -7,7 +7,9 @@ function includeClass($myclass)
 }
 
 spl_autoload_register('includeClass');
-includeClass('Week');
+includeClass('User');
+includeClass('userManager');
+
 ?>
 <?php $month = new Month();
 var_dump($month);?>

@@ -1,5 +1,14 @@
 <?php
 session_start();
+include '../config/function.php';
+spl_autoload_register('includeClass');
+includeClass('Event');
+includeClass('EventManager');
+echo 'POST';
+var_dump($_POST);
+$Event = new Event();
+//$Event->hydrate();
+
 ?>
 
 <!doctype html>
@@ -28,15 +37,15 @@ session_start();
         <h2 class="title-main font-light">Formulaire de reservation</h2>
         <form action="" method="post" class="form-connexion container-col form-resa">
             <label for="title" class="label font-light">Votre évenement</label>
-            <input type="text" name="titre" id="title" placeholder="Entrez votre évenement">
+            <input type="text" name="title" id="title" placeholder="Entrez votre évenement">
             <label for="describ" class="label font-light">Description</label>
-            <textarea name="description" id="describ" placeholder="Déscription de votre évenement" cols="20" rows="8"></textarea>
+            <textarea name="describe" id="describ" placeholder="Déscription de votre évenement" cols="20" rows="8"></textarea>
 
             <label for="date-debut" class="label font-light">Date et heure de début</label>
-            <input type="datetime-local" name="date-debut" id="date-debut" value="2020-01-12T19:30">
+            <input type="datetime-local" name="dateBegin" id="date-debut" value="2020-01-12T19:30">
 
             <label for="date-fin" class="label font-light">Date et heure de fin</label>
-            <input type="datetime-local" name="date-fin" id="date-fin" value="2020-01-12T19:30">
+            <input type="datetime-local" name="dateEnd" id="date-fin" value="2020-01-12T19:30">
             <button class="button" type="submit" name="submit">Envoyer</button>
         </form>
     </section>

@@ -1,6 +1,28 @@
 <!--PHP-->
 <?php
+include '../config/function.php';
+spl_autoload_register('includeClass');
+includeClass('User');
+includeClass('UserManager');
 session_start();
+//Nouvelle instance de PDO
+$PDO = new PDO('mysql:dbname=reservationsalles;host=localhost', 'root', '');
+//Nouvelle instance de User
+$user = new User();
+//Nouvelle instance de userManager
+$manager = new UserManager($PDO);
+//Si action boutton
+if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['submit']) ) {
+    //Hydrate User avec $_POST
+    $user->hydrate($_POST);
+    //Connecte l'utilisateur renvoi un bool
+    $connection = $manager->connect($user);
+    if ($connection == true) {
+        $user->setConnected(true);
+        $_SESSION['user'] = $user;
+        header('location:profil.php');
+    }
+}
 ?>
 <!--HTML-->
 <!doctype html>

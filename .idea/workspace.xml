@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="614f7e5f-0e33-4625-94b3-d5c47b58fe5d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/class/class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/connexion.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/footer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/header.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/inscription.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/planning.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/profil.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/reservation-form.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/reservation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/test.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/planning.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/planning.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/class/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/class/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/class/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/class/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/class/Week.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/class/userManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/class/UserManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/connexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/inscription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/planning.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/planning.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/profil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reservation-form.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reservation-form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reservation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -47,11 +47,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609264972421</updated>
-      <workItem from="1609264973576" duration="5870000" />
+      <workItem from="1609264973576" duration="5929000" />
+      <workItem from="1609332051849" duration="8966000" />
+      <workItem from="1609426082830" duration="5702000" />
+      <workItem from="1609512863538" duration="4048000" />
+      <workItem from="1609523021316" duration="2000" />
+      <workItem from="1609745739356" duration="13753000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -1,5 +1,33 @@
 <?php
+include '../config/function.php';
+spl_autoload_register('includeClass');
+includeClass('User');
+includeClass('UserManager');
 session_start();
+$User = new User();
+$PDO = new PDO('mysql:dbname=reservationsalles;host=localhost', 'root', '');
+$UserManager = new UserManager($PDO);
+if (isset($_POST['submit'])) {
+    if (htmlspecialchars(isset($_POST['login'])) && htmlspecialchars(isset($_POST['password']))) {
+        //Tableau assoc hydratation
+        $tab = [
+            'id' => $_SESSION['user']->getId(),
+            'login' => $_POST['login'],
+            'password' => $_POST['password'],
+            'connected' => $_SESSION['user']->getConnected()
+        ];
+        $User->hydrate($tab);
+        $UserManager->update($User);
+        $_SESSION['user']=$User;
+    }
+}
+echo 'USER';
+var_dump($User);
+echo 'POST';
+var_dump($_POST);
+echo 'SESSION USER';
+var_dump($_SESSION['user']);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,7 +55,7 @@ session_start();
         <h2 class="title-main font-light">Formulaire de gestion de profil</h2>
         <form action="" method="post" class="form-profil container-col">
             <label for="login" class="label font-light">Votre nouvel identifiant</label>
-            <input type="text" name="login" id="login" placeholder="Entrez otre identifiant">
+            <input type="text" name="login" id="login" placeholder="Entrez votre identifiant">
             <label for="password" class="label font-light">Votre nouveau mot de passe</label>
             <input type="password" name="password" id="password" value="password">
             <button class="button" name="submit" type="submit">Envoyer</button>

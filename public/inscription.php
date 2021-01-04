@@ -1,6 +1,26 @@
 <!--PHP-->
 <?php
-
+include '../config/function.php';
+spl_autoload_register('includeClass');
+includeClass('User');
+includeClass('UserManager');
+//Nouvelle instance de PDO
+$PDO = new PDO('mysql:dbname=reservationsalles;host=localhost', 'root', '');
+//Nouvelle instance de userManager
+$manager = new  UserManager($PDO);
+//Nouvelle instance Utilisateur pour incription en BDD
+$user = new User();
+//Si action boutton form
+if (isset($_POST['submit'])) {
+//    Echapement des caractere saisit
+    if (htmlspecialchars($_POST['password']) == htmlspecialchars($_POST['confirmPassword'])) {
+        //Methode de remplsisage des attribut de l'objet utilisateur
+        $user->hydrate($_POST);
+        //Methode inscription BDD
+        $manager->insert($user);
+        unset($user);
+    }
+}
 ?>
 <!--HTML-->
 <!doctype html>
@@ -32,7 +52,7 @@
             <label for="password" class="label font-light">Votre mot de passe</label>
             <input type="password" name="password" id="password" value="password" required>
             <label for="confpass" class="label font-light">Confirmez votre mot de passe</label>
-            <input type="password" name="confpassword" id="confpass" required value="password">
+            <input type="password" name="confirmPassword" id="confpass" required value="password">
             <button class="button" name="submit" type="submit">Envoyer</button>
         </form>
     </section>
