@@ -1,13 +1,36 @@
 <?php
-session_start();
 include '../config/function.php';
 spl_autoload_register('includeClass');
+includeClass('User');
 includeClass('Event');
 includeClass('EventManager');
+session_start();
+
+$PDO = new PDO('mysql:dbname=reservationsalles;host=localhost', 'root', '');
+$Event = new Event();
+$EventManage = new EventManager($PDO);
+
+if (isset($_POST['submit'])) {
+    if (isset($_POST['title']) && !empty($_POST['title']) && isset($_POST['describe']) && !empty($_POST['describe']) && isset($_POST['dateBegin']) && !empty($_POST['dateBegin']) && isset($_POST['dateEnd']) && !empty($_POST['dateEnd']) ) {
+
+        $_POST['title'] = htmlspecialchars($_POST['title']);
+        $_POST['describe'] = htmlspecialchars($_POST['describe']);
+        $_POST['dateBegin'] = htmlspecialchars($_POST['dateBegin']);
+        $_POST['dateEnd'] = htmlspecialchars($_POST['dateEnd']);
+        //Ajout d'un champs post pour l'id utilisateur à stocker en BDD récup depuis SESSION
+        $_POST['userId'] = $_SESSION['user']->getId();
+        //Hydratation Event
+        $Event->hydrate($_POST);
+        //Requete d'insertion
+        $EventManage->create($Event);
+        // Purger objet Event
+        unset($Event);
+    }
+}
 echo 'POST';
 var_dump($_POST);
-$Event = new Event();
-//$Event->hydrate();
+echo 'OBJET EVENT';
+var_dump($Event);
 
 ?>
 
@@ -38,14 +61,15 @@ $Event = new Event();
         <form action="" method="post" class="form-connexion container-col form-resa">
             <label for="title" class="label font-light">Votre évenement</label>
             <input type="text" name="title" id="title" placeholder="Entrez votre évenement">
-            <label for="describ" class="label font-light">Description</label>
-            <textarea name="describe" id="describ" placeholder="Déscription de votre évenement" cols="20" rows="8"></textarea>
+            <label for="describe" class="label font-light">Description</label>
+            <textarea name="describe" id="describe" placeholder="Déscription de votre évenement" cols="20"
+                      rows="8"></textarea>
 
             <label for="date-debut" class="label font-light">Date et heure de début</label>
-            <input type="datetime-local" name="dateBegin" id="date-debut" value="2020-01-12T19:30">
+            <input type="datetime-local" name="dateBegin" id="date-debut" >
 
             <label for="date-fin" class="label font-light">Date et heure de fin</label>
-            <input type="datetime-local" name="dateEnd" id="date-fin" value="2020-01-12T19:30">
+            <input type="datetime-local" name="dateEnd" id="date-fin" >
             <button class="button" type="submit" name="submit">Envoyer</button>
         </form>
     </section>
