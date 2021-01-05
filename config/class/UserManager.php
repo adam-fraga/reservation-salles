@@ -29,7 +29,6 @@ class UserManager
             return false;
         }
     }
-
     /**
      * @param User $User Prend en parametre un objet User et l'inscrit en BDD
      */

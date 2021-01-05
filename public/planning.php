@@ -1,22 +1,23 @@
 <?php
-session_start();
-//Chargeur de classes
-function includeClass($myclass)
-{
-    require '../config/class/' . $myclass . '.php';
-}
-
+include '../config/function.php';
 spl_autoload_register('includeClass');
 includeClass('User');
-includeClass('userManager');
-
+includeClass('UserManager');
+includeClass('Event');
+includeClass('EventManager');
+includeClass('Calendar');
+session_start();
+//Nouvelle instance de Calendar
+try {
+//Prend en parametre le mois et l'année passé en GET sinon prends la valeur null
+    $Calendar = new Calendar($_GET['month'] ?? null, $_GET['year'] ?? null);
+} catch (Exception $e) {
+    $Calendar = new Calendar();
+    //Recupere le premier lundi du mois
+}
+$firstDay = $Calendar->firstDayOfMonth()->modify('last monday');
 ?>
-<?php $month = new Month();
-var_dump($month);?>
-<?php $day = $month->getFirstDay()->modify('last monday');
-var_dump($day);?>
-<?php $days = $month->getDay();
-var_dump($days); ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -44,7 +45,8 @@ var_dump($days); ?>
         <h2 class="title-main">Planning des reservations</h2>
         <div class="container-tab">
             <div class="box-cal">
-                <h1 class="title-cal title-main"></h1>
+                <!--Affiche le mois en cours -->
+                <h1 class="title-cal title-main"><?php echo $Calendar->MonthString(); ?></h1>
                 <div class="box-controller">
                     <a href=""
                        class="btn-ctrl"><i class="fas fa-arrow-alt-circle-left"></i></a>
@@ -52,9 +54,47 @@ var_dump($days); ?>
                        class="btn-ctrl"><i class="fas fa-arrow-alt-circle-right"></i></a>
                 </div>
             </div>
-            <table class="calendarWeek">
-
+            <!--            TABLEAU PLANING PHP-->
+            <table class="calendar">
+                <!--Affichage des jours-->
+                <tr class="tr-day">
+                    <th class="th-entête">Planning</th>
+                    <?php foreach ($Calendar->getDay() as $day): ?>
+                        <th class="th-day"><?php echo $day; ?></th>
+                    <?php endforeach; ?>
+                </tr>
+                <!--Affichage des heure-->
+                <?php foreach ($Calendar->getHours() as $hour): ?>
+                    <tr>
+                        <td class="td-hour"><?php echo $hour . 'h' ?></td>
+                        <td class="td-creneaux">
+                            <!--Affichage des creneaux (liés aux heure a voir pour futur method tableau ou objet creneaux-->
+                            Creneaux Lun <?php echo $hour; ?>
+                        </td>
+                        <td class="td-creneaux">
+                            Creneaux Mar <?php echo $hour; ?>
+                        </td>
+                        <td class="td-creneaux">
+                            Creneaux Mer<?php echo $hour; ?>
+                        </td>
+                        <td class="td-creneaux">
+                            Creneaux Jeu<?php echo $hour; ?>
+                        </td>
+                        <td>
+                            Creneaux Ven<?php echo $hour; ?>
+                        </td>
+                        <td>NONE</td>
+                        <td>NONE</td>
+                    </tr>
+                <?php endforeach; ?>
             </table>
+            <?php
+            var_dump($firstDay);
+
+            echo 'Objet Calendar';
+            var_dump($Calendar);
+            ?>
+
         </div>
     </section>
 </main>

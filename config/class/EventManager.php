@@ -36,8 +36,8 @@ class EventManager
     }
 
     /**
-     * @param string Titre de l'évenement enregistré
-     * @return array Retourne un tableau du titre de l'event passé en paramètre
+     * @param string Titre de l'évenement à consulter
+     * @return array Retourne un tableau d'un evenement
      */
     public function read(string $EventTitle): array
     {
