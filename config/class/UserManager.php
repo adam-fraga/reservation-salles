@@ -18,10 +18,10 @@ class UserManager
     public function connect(User $User):bool{
         $stmt = $this->_db->query('SELECT * FROM utilisateurs WHERE'. $User->getLogin());
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($data);
         if ($User->getLogin() == $data['login'] && password_verify($User->getPassword(),$data['password']))
         {
             $User->setId(intval($data['id']));
+            $User->setPassword( password_hash($User->getPassword(),CRYPT_BLOWFISH));
             return true;
         }
         else

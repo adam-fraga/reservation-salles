@@ -21,13 +21,6 @@ if (isset($_POST['submit'])) {
         $_SESSION['user']=$User;
     }
 }
-echo 'USER';
-var_dump($User);
-echo 'POST';
-var_dump($_POST);
-echo 'SESSION USER';
-var_dump($_SESSION['user']);
-
 ?>
 <!doctype html>
 <html lang="en">

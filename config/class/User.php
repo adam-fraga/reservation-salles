@@ -3,9 +3,9 @@
 class User
 {
     private $_id,
-        $_login,
-        $_password,
-        $_connected;
+            $_login,
+            $_password,
+            $_connected;
 
     //Fonction d'hydratation de la classe utilisateur
     public function hydrate(array $data)

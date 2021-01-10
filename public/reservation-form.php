@@ -1,37 +1,55 @@
 <?php
+//Inclusion de la fonction de chargement de classe auto
 include '../config/function.php';
 spl_autoload_register('includeClass');
+//Inclusion classe
 includeClass('User');
 includeClass('Event');
 includeClass('EventManager');
+//Session ini
 session_start();
-
+//Ini des bool utilitaires
+$testAvailable = null;
+$hourTest = null;
+$weekTest = null;
+$dayTest = null;
+//Instanciation des objets
 $PDO = new PDO('mysql:dbname=reservationsalles;host=localhost', 'root', '');
 $Event = new Event();
 $EventManage = new EventManager($PDO);
 
+//Si action boutton
 if (isset($_POST['submit'])) {
-    if (isset($_POST['title']) && !empty($_POST['title']) && isset($_POST['describe']) && !empty($_POST['describe']) && isset($_POST['dateBegin']) && !empty($_POST['dateBegin']) && isset($_POST['dateEnd']) && !empty($_POST['dateEnd']) ) {
-
+    if (isset($_POST['title']) && !empty($_POST['title']) && isset($_POST['describe']) && !empty($_POST['describe']) && isset($_POST['dateBegin']) && !empty($_POST['dateBegin']) && isset($_POST['dateEnd']) && !empty($_POST['dateEnd'])) {
         $_POST['title'] = htmlspecialchars($_POST['title']);
         $_POST['describe'] = htmlspecialchars($_POST['describe']);
         $_POST['dateBegin'] = htmlspecialchars($_POST['dateBegin']);
         $_POST['dateEnd'] = htmlspecialchars($_POST['dateEnd']);
+        $_POST['hourBegin'] = htmlspecialchars($_POST['hourBegin']);
+        $_POST['hourEnd'] = htmlspecialchars($_POST['hourEnd']);
+
         //Ajout d'un champs post pour l'id utilisateur à stocker en BDD récup depuis SESSION
         $_POST['userId'] = $_SESSION['user']->getId();
-        //Hydratation Event
+        //Hydratation de l'objet Event
         $Event->hydrate($_POST);
-        //Requete d'insertion
-        $EventManage->create($Event);
-        // Purger objet Event
-        unset($Event);
+
+        try {
+            //Test les exception Event hors Weekend, Reservation sur Même jour, durée de une heure du creneaux et Présence d'un event similaire en BDD
+            $weekTest = $EventManage->onWeek($Event->getDateBegin());
+            $hourTest = $EventManage->oneHour($Event);
+            $dayTest = $EventManage->sameDay($Event);
+            $testAvailable = $EventManage->isEventAvailable($Event);
+        } catch (Exception $e) {
+            echo $e;
+        }
+        if ($testAvailable == true && $hourTest == true && $weekTest == true && $dayTest == true) {
+            //Requete d'insertion
+            $EventManage->create($Event);
+            // Purge objet Event
+            unset($Event);
+        }
     }
 }
-echo 'POST';
-var_dump($_POST);
-echo 'OBJET EVENT';
-var_dump($Event);
-
 ?>
 
 <!doctype html>
@@ -51,10 +69,9 @@ var_dump($Event);
 <main class="main">
     <section class="pesentation container-col ">
         <h1 class="title-main">Choisissez un creneau pour votre reservation</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet explicabo perferendis qui similique. Adipisci
-            blanditiis commodi est fugiat labore quae qui voluptatem? Ad laudantium molestiae quam quidem quod
-            repudiandae
-            tempora.</p>
+        <p>C'est ici que vous pourrez choisir votre créneau de reservation attention toutefois Vous ne pouvez pas editer
+            vos créneaux alors reflechissez bien pour toute modalité de remboursement
+            veuillez vous réferer aux conditions général.</p>
     </section>
     <section class="container-col decoration-bloc bloc-resa">
         <h2 class="title-main font-light">Formulaire de reservation</h2>
@@ -65,13 +82,56 @@ var_dump($Event);
             <textarea name="describe" id="describe" placeholder="Déscription de votre évenement" cols="20"
                       rows="8"></textarea>
 
-            <label for="date-debut" class="label font-light">Date et heure de début</label>
-            <input type="datetime-local" name="dateBegin" id="date-debut" >
+            <label for="date-debut" class="label font-light">Date de début</label>
+            <input type="date" name="dateBegin" id="date-debut" required>
+            <label for="heure-debut" class="label font-light">Heure de début</label>
+            <select name="hourBegin" id="heure-debut">
+                <option value="8">8h00</option>
+                <option value="9">9h00</option>
+                <option value="10">10h00</option>
+                <option value="11">11h00</option>
+                <option value="12">12h00</option>
+                <option value="13">13h00</option>
+                <option value="14">14h00</option>
+                <option value="15">15h00</option>
+                <option value="16">16h00</option>
+                <option value="17">17h00</option>
+                <option value="18">18h00</option>
+            </select>
 
-            <label for="date-fin" class="label font-light">Date et heure de fin</label>
-            <input type="datetime-local" name="dateEnd" id="date-fin" >
+            <label for="date-fin" class="label font-light">Date de fin</label>
+            <input type="date" name="dateEnd" id="date-fin" required>
+
+            <label for="heure-fin" class="label font-light">Heure de Fin</label>
+            <select name="hourEnd" id="heure-fin">
+                <option value="9">9h00</option>
+                <option value="10">10h00</option>
+                <option value="10">11h00</option>
+                <option value="12">12h00</option>
+                <option value="13">13h00</option>
+                <option value="14">14h00</option>
+                <option value="15">15h00</option>
+                <option value="16">16h00</option>
+                <option value="17">17h00</option>
+                <option value="18">18h00</option>
+                <option value="19">19h00</option>
+            </select>
             <button class="button" type="submit" name="submit">Envoyer</button>
+            <?php if ($dayTest == false) {
+                echo "<p class='error'>Votre reservation ne peux pas s'étaler sur 2 jours.</p>";
+            } ?>
+            <?php if ($hourTest == false) {
+                echo "<p class='error'>Vous ne pouvez pas reserver un creneau de plus d'une heure.</p>";
+            } ?>
+            <?php if ($weekTest == false) {
+                echo "<p class='error'>Nos services sont disponible uniquement du Lundi au Vendredi.</p>";
+            } ?>
+            <?php if ($testAvailable == false) {
+                echo "<p class='error'>Ce creneau n'est plus disponible merci d'en vhoisir un autre.</p>";
+            } ?>
         </form>
+
+
     </section>
 </main>
 <?php include 'footer.php' ?>

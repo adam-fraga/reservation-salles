@@ -60,12 +60,19 @@ class Calendar
     {
         return $this->_months[$this->_month - 1] . ' ' . $this->_year;
     }
-//Recupere tout les events (En vu de les afficher sous forme de tableau)
 
-//Affiche les event sous forme de semaine/heure dans un  tableau html
+    /**Met en forme les Event et les affiche trier par heure
+     * @param array $data Prend un param un tableau d'event
+     */
+    public function orderEventByHour(array $data)
+    {
 
+    }
 
-// Trie les event par semaine en vue de les affiché
+    public function orderEventByDay(array $data)
+    {
+
+    }
 
 //SETTER
     /**

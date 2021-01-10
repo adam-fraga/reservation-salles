@@ -23,6 +23,11 @@ if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['submit'
         header('location:profil.php');
     }
 }
+echo 'SESSION';
+var_dump($_SESSION['user']);
+echo 'POST';
+var_dump($_POST);
+
 ?>
 <!--HTML-->
 <!doctype html>
