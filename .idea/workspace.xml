@@ -3,16 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="614f7e5f-0e33-4625-94b3-d5c47b58fe5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/class/Calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/class/Calendar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/class/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/class/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/class/Calendar.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/config/class/EventManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/class/EventManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/class/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/class/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/class/UserManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/class/UserManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/connexion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/planning.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/planning.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/profil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reservation-form.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reservation-form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/reservation-form.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/reservation-form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/planning.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/planning.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -70,7 +65,12 @@
       <workItem from="1610099476111" duration="2056000" />
       <workItem from="1610101568830" duration="8464000" />
       <workItem from="1610189078248" duration="13975000" />
-      <workItem from="1610284367643" duration="2414000" />
+      <workItem from="1610284367643" duration="13988000" />
+      <workItem from="1610300288724" duration="65000" />
+      <workItem from="1610353860997" duration="26788000" />
+      <workItem from="1610444538195" duration="22559000" />
+      <workItem from="1610479083007" duration="145000" />
+      <workItem from="1610482341666" duration="214000" />
     </task>
     <servers />
   </component>

@@ -5,16 +5,10 @@ includeClass('User');
 includeClass('UserManager');
 includeClass('Event');
 includeClass('EventManager');
-includeClass('Calendar');
 session_start();
-//Nouvelle instance de Calendar
-try {
-//Prend en parametre le mois et l'année passé en GET sinon prends la valeur null
-    $Calendar = new Calendar($_GET['month'] ?? null, $_GET['year'] ?? null);
-} catch (Exception $e) {
-    $Calendar = new Calendar();
-    //Recupere le premier lundi du mois
-}
+//Nouvelle instance de Manager
+$Manager = new EventManager(new PDO('mysql:dbname=reservationsalles;host=localhost', 'root', ''));
+//Recupere les Events de la semaine en corus en db
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,7 +19,6 @@ try {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/planning.css">
-
     <title>Document</title>
 </head>
 <body>
@@ -43,18 +36,20 @@ try {
         <div class="container-tab">
             <div class="box-cal">
                 <!--Affiche le mois en cours (Lui passer en param le mois du datetime recup) -->
-                <h1 class="title-cal title-main"><?php echo $Calendar->MonthString();  ?></h1>
+                <h1 class="title-cal title-main">Mois?</h1>
                 <div class="box-controller">
-                    <a href=""
+                    <a href="planning.php?prevWeek="
                        class="btn-ctrl"><i class="fas fa-arrow-alt-circle-left"></i></a>
-                    <a href=""
+                    <a href="planning.php?nextWeek="
                        class="btn-ctrl"><i class="fas fa-arrow-alt-circle-right"></i></a>
                 </div>
             </div>
             <!--            TABLEAU PLANING PHP-->
             <table class="calendar">
-            </table>
+                <tr>
+                    <th class="th-day">Planning</th>
 
+            </table>
         </div>
     </section>
 </main>

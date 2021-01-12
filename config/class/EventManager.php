@@ -75,7 +75,7 @@ class EventManager
 
     /**
      * @param Event $Event
-     * @return bool Check si la reservatkion se fait sur le même jour renvoi un bool
+     * @return bool Check si la reservation se fait sur le même jour renvoi un bool
      */
     public function sameDay(Event $Event): bool
     {
@@ -112,10 +112,44 @@ class EventManager
      * @return array Retourne un tableau d'un evenement
      */
 
-    /** Recupere les event de toute une semaine en BDD et retourne un tableau D'event ( A mettre en forme html)
+    /** Recupere les event de la semaine en cours
+     * @param Calendar $calendar Prends en parametre un Objet de type Calendar
+     * @return array  return la liste des events de la semaine courante.
+     * @throws Exception
      */
-    public function pullEvents(): array
+    public function pullEvents(Calendar $calendar): array
     {
+        $firstday = $calendar->getDay()->format('Y-m-d 7:00');
+        $lastday = $calendar->getDay()->modify('+7 day')->format('Y-m-d 20:00');
+
+        $result = $this->_db->query("SELECT * FROM reservations WHERE debut BETWEEN '$firstday' AND '$lastday'");
+        return $Events = $result->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
+
+    /**
+     * @param DateTime $EventDate
+     * @throws Exception
+     */
+    public function daytest(DateTime $EventDate,Calendar $WeekDay)
+    {
+        $WeekDay->getDay()->format('l');
+        $WeekDay->getDay()->format('H');
+
+        $Day = $EventDate->format('l');
+        $hour = $EventDate->format('H');
+
+
+
+    }
+
+    public function EvenPrint(bool $EventMatch)
+    {
+        if ($EventMatch){
+            echo "<td>Event Exist</td>";
+        }
+
 
     }
 
@@ -161,14 +195,3 @@ class EventManager
     }
 
 }
-
-//$PDO = new PDO('mysql:dbname=reservationsalles;host=localhost', 'root', '');
-//$EventManager = new EventManager($PDO);
-//$date1 = new DateTime('2021-01-07 11:00:00');
-//$date2 = new DateTime('2021-01-07 12:00:00');
-//$Event = new  Event();
-//try {
-//    $EventManager->isEventAvailable($Event);
-//} catch (Exception $e) {
-//    echo $e;
-//}
