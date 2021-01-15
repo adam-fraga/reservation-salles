@@ -8,7 +8,6 @@ includeClass('EventManager');
 session_start();
 //Nouvelle instance de Manager
 $Manager = new EventManager(new PDO('mysql:dbname=reservationsalles;host=localhost', 'root', ''));
-//Recupere les Events de la semaine en corus en db
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,19 +34,56 @@ $Manager = new EventManager(new PDO('mysql:dbname=reservationsalles;host=localho
         <h2 class="title-main">Planning des reservations</h2>
         <div class="container-tab">
             <div class="box-cal">
+                <?php
+                $day = new DateTime('This week Monday 8:00');
+                $Endweek = $day;
+                $strDay = $day->format('l');
+                $numbDay = $day->format('d');
+                $Upday = (clone $day)->modify('+1 Day');
+                $hourDisplay = 8;
+                ?>
                 <!--Affiche le mois en cours (Lui passer en param le mois du datetime recup) -->
-                <h1 class="title-cal title-main">Mois?</h1>
-                <div class="box-controller">
-                    <a href="planning.php?prevWeek="
-                       class="btn-ctrl"><i class="fas fa-arrow-alt-circle-left"></i></a>
-                    <a href="planning.php?nextWeek="
-                       class="btn-ctrl"><i class="fas fa-arrow-alt-circle-right"></i></a>
-                </div>
+                <h1 class="title-cal title-main"><?= $day->format('F').'/'.$day->format('Y') ?></h1>
+
             </div>
             <!--            TABLEAU PLANING PHP-->
             <table class="calendar">
+
                 <tr>
+                    <!--Affiche case Planing pour pouvoir placer heure en colonne-->
                     <th class="th-day">Planning</th>
+                    <!--Affiche le lundi independement pour pouvoir incrementer reste de la semaine sans l'ecraser -->
+                    <th class="th-day"><?php echo $strDay; ?><br><?php echo $numbDay; ?></th>
+                    <!--Boucle les jours restant et les formate pour afficher jour + num jour -->
+                    <?php for ($th = 0; $th < 6; $th++): ?>
+                        <?php
+                        echo "<th class='th-day'>{$Upday->format('l')}<br>{$Upday->format('d')}</th>";
+                        $Upday->modify('+1 day');
+                        ?>
+                    <?php endfor; ?>
+                </tr>
+                <?php
+//                Pour 10 creneaux
+                for ($tr = 0; $tr <= 10; $tr++):
+//                    Affiche l'heure et incremente l'air 10 fois
+                    echo '<tr><td>'.$hourDisplay.'h</td>';
+                $hourDisplay++;
+                    for ($td = 0; $td <= 6; $td++):
+                       $event = $Manager->pullEvents($day);
+                       echo $day->format('Y-m-d H:00:00').'<br>';
+//                       Si event existe Affiche Event sinon Affiche Creneau disponible
+                        if ($event)  {echo '<td class="Pris"><a href="reservation.php">'.$event['titre'].'</a></td>';}
+                        else {echo '<td class="Libre"><a class="btn-reserv" href="reservation-form.php">'.'Reserver'.'</a></td>';}
+                        $day->modify('+1 Day');
+
+                    endfor;
+//                    Incremente d'une heure par ligne
+                    $day->modify('+1 Hour');
+//                    Retire 7 jour pour retourné au jour j
+                    $day->modify('-7 Day');
+                endfor;
+
+                ?>
 
             </table>
         </div>

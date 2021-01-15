@@ -107,67 +107,22 @@ class EventManager
         $stmt->execute();
     }
 
-    /**
-     * @param string Titre de l'évenement à consulter
-     * @return array Retourne un tableau d'un evenement
-     */
-
-    /** Recupere les event de la semaine en cours
-     * @param Calendar $calendar Prends en parametre un Objet de type Calendar
-     * @return array  return la liste des events de la semaine courante.
+    /** Retourne un tableau qui hydrate l'objet event
+     * @param DateTime $date Date de début de l'event
+     * @return false
      * @throws Exception
      */
-    public function pullEvents(Calendar $calendar): array
+    public function pullEvents(DateTime $date): array
     {
-        $firstday = $calendar->getDay()->format('Y-m-d 7:00');
-        $lastday = $calendar->getDay()->modify('+7 day')->format('Y-m-d 20:00');
-
-        $result = $this->_db->query("SELECT * FROM reservations WHERE debut BETWEEN '$firstday' AND '$lastday'");
-        return $Events = $result->fetchAll(PDO::FETCH_ASSOC);
-
+        $strDate = $date->format('Y-m-d H:00:00');
+        $stmt = $this->_db->query("SELECT * FROM reservations WHERE debut='$strDate'");
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        var_dump($result);
+        if ($result == true) {
+            return $result;
+        } else return [];
     }
 
-
-    /**
-     * @param DateTime $EventDate
-     * @throws Exception
-     */
-    public function daytest(DateTime $EventDate,Calendar $WeekDay)
-    {
-        $WeekDay->getDay()->format('l');
-        $WeekDay->getDay()->format('H');
-
-        $Day = $EventDate->format('l');
-        $hour = $EventDate->format('H');
-
-
-
-    }
-
-    public function EvenPrint(bool $EventMatch)
-    {
-        if ($EventMatch){
-            echo "<td>Event Exist</td>";
-        }
-
-
-    }
-
-    /**
-     * Requete permettant de récuperer la semaine suivante en DB et l'afficher sous forme de tableau
-     */
-    public function nextWeek(): void
-    {
-
-    }
-
-    /**
-     *Requete permettant de récuperer la semaine précedente en DB et l'afficher sous forme de tableau
-     */
-    public function previousWeek(): void
-    {
-
-    }
 
 //    SETTER
 
