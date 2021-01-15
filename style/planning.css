@@ -1,4 +1,3 @@
-
 /*CALENDAR*/
 .calendar {
     width: 90vw;
@@ -18,7 +17,8 @@
     border: 1px solid whitesmoke;
     background: center center url("img/Black-vector.jpg");
 }
-.td-hour{
+
+.td-hour {
     font-weight: bold;
 }
 
@@ -40,7 +40,32 @@
     color: black;
     font-size: 2em;
 }
+
 .btn-ctrl .fas:hover {
     color: dodgerblue;
     transition: .5s;
+}
+
+table .td-hour {
+    background: center center url("img/Black-vector.jpg");
+    color: white;
+    border: 1px solid white;
+    font-weight: bold;
+}
+
+.event {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.event-title {
+    color: limegreen;
+}
+
+.event-login {
+    color: black;
+    font-style: italic;
+}
+.event-title:hover {
+    text-decoration: underline;
 }

@@ -109,15 +109,14 @@ class EventManager
 
     /** Retourne un tableau qui hydrate l'objet event
      * @param DateTime $date Date de début de l'event
-     * @return false
+     * @return array
      * @throws Exception
      */
     public function pullEvents(DateTime $date): array
     {
         $strDate = $date->format('Y-m-d H:00:00');
-        $stmt = $this->_db->query("SELECT * FROM reservations WHERE debut='$strDate'");
+        $stmt = $this->_db->query("SELECT * FROM reservations INNER JOIN utilisateurs ON utilisateurs.id = reservations.id_utilisateur WHERE debut='$strDate'");
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($result);
         if ($result == true) {
             return $result;
         } else return [];
