@@ -26,3 +26,7 @@ textarea {
     border: 4px double black;
     font-size: 1.2em;
 }
+.error {
+    color: red;
+    text-shadow: 1px 1px 1px black;
+}

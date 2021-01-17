@@ -19,25 +19,32 @@
         <ul class="menu container-row">
             <li class="item-menu link-user"><a href="#">User</a>
                 <!--            SOUS MENU UTILISATEUR-->
+                <?php if (empty($_SESSION)):  ?>
                 <ul class="sous-menu sm-user">
                     <li class="item-sous-menu"><a href="public/inscription.php">Inscription</a></li>
                     <li class="item-sous-menu"><a href="public/connexion.php">Connexion</a></li>
+                    <?php endif;?>
+                    <?php if (isset($_SESSION['user'])):  ?>
                     <li class="item-sous-menu"><a href="public/profil.php">Mon Profil</a></li>
+                    <?php endif;?>
                 </ul>
             </li>
             <li class="item-menu link-reservation"><a href="#">Reservation</a>
                 <!--            SOUS MENU RESERVATION-->
                 <ul class="sous-menu sm-reservation">
                     <li class="item-sous-menu"><a href="public/planning.php">Planning</a></li>
+                    <?php if (isset($_SESSION['user'])):  ?>
                     <li class="item-sous-menu"><a href="public/reservation-form.php">Reserver</a></li>
                     <li class="item-sous-menu"><a href="public/reservation.php">Mes reservations</a></li>
-
+                    <?php endif; ?>
 
                 </ul>
             </li>
+            <?php if (isset($_SESSION['user'])):  ?>
             <form action="" method="post" class="container-tools">
                 <button class="button-logout"><i class="fas fa-sign-out-alt"></i></button>
             </form>
+            <?php endif; ?>
         </ul>
 
     </nav>

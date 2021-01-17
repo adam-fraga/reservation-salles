@@ -16,18 +16,13 @@ if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['submit'
     //Hydrate User avec $_POST
     $user->hydrate($_POST);
     //Connecte l'utilisateur renvoi un bool
-    $connection = $manager->connect($user);
-    if ($connection == true) {
+
+    if ( $manager->connect($user)) {
         $user->setConnected(true);
         $_SESSION['user'] = $user;
-        header('location:profil.php');
+        header('location:reservation-form.php');
     }
 }
-echo 'SESSION';
-var_dump($_SESSION['user']);
-echo 'POST';
-var_dump($_POST);
-
 ?>
 <!--HTML-->
 <!doctype html>

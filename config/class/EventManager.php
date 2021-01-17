@@ -74,6 +74,14 @@ class EventManager
     }
 
     /**
+     * @param DateTime $date gere les évenement passés
+     * @return bool
+     */
+    public function past(DateTime $date):bool{
+
+    }
+
+    /**
      * @param Event $Event
      * @return bool Check si la reservation se fait sur le même jour renvoi un bool
      */

@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="614f7e5f-0e33-4625-94b3-d5c47b58fe5d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/class/EventManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/class/EventManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/planning.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/planning.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/connexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reservation-form.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reservation-form.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/planning.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/planning.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/reservation.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/reservation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/reservation-form.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/reservation-form.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +83,9 @@
       <workItem from="1610629330105" duration="206000" />
       <workItem from="1610630131044" duration="58000" />
       <workItem from="1610642041293" duration="8777000" />
-      <workItem from="1610700617357" duration="15412000" />
+      <workItem from="1610700617357" duration="15499000" />
+      <workItem from="1610792004355" duration="6504000" />
+      <workItem from="1610898330562" duration="187000" />
     </task>
     <servers />
   </component>

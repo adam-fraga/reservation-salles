@@ -8,15 +8,10 @@ includeClass('Event');
 includeClass('EventManager');
 //Session ini
 session_start();
-//Ini des bool utilitaires
-$testAvailable = null;
-$hourTest = null;
-$weekTest = null;
-$dayTest = null;
 //Instanciation des objets
 $PDO = new PDO('mysql:dbname=reservationsalles;host=localhost', 'root', '');
 $Event = new Event();
-$EventManage = new EventManager($PDO);
+$Manager = new EventManager($PDO);
 
 //Si action boutton
 if (isset($_POST['submit'])) {
@@ -35,16 +30,16 @@ if (isset($_POST['submit'])) {
 
         try {
             //Test les exception Event hors Weekend, Reservation sur Même jour, durée de une heure du creneaux et Présence d'un event similaire en BDD
-            $weekTest = $EventManage->onWeek($Event->getDateBegin());
-            $hourTest = $EventManage->oneHour($Event);
-            $dayTest = $EventManage->sameDay($Event);
-            $testAvailable = $EventManage->isEventAvailable($Event);
+            $weekTest = $Manager->onWeek($Event->getDateBegin());
+            $hourTest = $Manager->oneHour($Event);
+            $dayTest = $Manager->sameDay($Event);
+            $testAvailable = $Manager->isEventAvailable($Event);
         } catch (Exception $e) {
             echo $e;
         }
-        if ($testAvailable == true && $hourTest == true && $weekTest == true && $dayTest == true) {
+        if (isset($testAvailable) && $testAvailable == true && isset($hourTest) && $hourTest == true && isset($weekTest) && $weekTest == true && isset($dayTest) && $dayTest == true) {
             //Requete d'insertion
-            $EventManage->create($Event);
+            $Manager->create($Event);
             // Purge objet Event
             unset($Event);
         }
@@ -117,18 +112,14 @@ if (isset($_POST['submit'])) {
                 <option value="19">19h00</option>
             </select>
             <button class="button" type="submit" name="submit">Envoyer</button>
-            <?php if ($dayTest == false) {
-                echo "<p class='error'>Votre reservation ne peux pas s'étaler sur 2 jours.</p>";
-            } ?>
-            <?php if ($hourTest == false) {
-                echo "<p class='error'>Vous ne pouvez pas reserver un creneau de plus d'une heure.</p>";
-            } ?>
-            <?php if ($weekTest == false) {
-                echo "<p class='error'>Nos services sont disponible uniquement du Lundi au Vendredi.</p>";
-            } ?>
-            <?php if ($testAvailable == false) {
-                echo "<p class='error'>Ce creneau n'est plus disponible merci d'en vhoisir un autre.</p>";
-            } ?>
+            <?php if (isset($testAvailable) && $testAvailable == false):
+                echo '<p class="error">' . 'La date que vous avez choisie n\'est plus disponible' . '<p>';
+            elseif (isset($weekTest) && $weekTest == false):
+                echo '<p class="error">' . 'Nos services sont indisponible le weekend' . '<p>';
+            elseif (isset($dayTest) && $dayTest == false || isset($hourTest) && $hourTest == false):
+                echo '<p class="error">' . 'Vous ne pouvez pas reserver des creneaux de plus d\'une heure.' . '<p>';
+            endif; ?>
+
         </form>
 
 

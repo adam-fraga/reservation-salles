@@ -19,25 +19,31 @@
             <li class="item-menu link-user"><a href="#">User</a>
                 <!--            SOUS MENU UTILISATEUR-->
                 <ul class="sous-menu sm-user">
-
-                    <li class="item-sous-menu"><a href="inscription.php">Inscription</a></li>
+                    <?php if (empty($_SESSION)):  ?>
+                   <li class="item-sous-menu"><a href="inscription.php">Inscription</a></li>
                     <li class="item-sous-menu"><a href="connexion.php">Connexion</a></li>
+                    <?php endif;?>
+                    <?php if (isset($_SESSION['user'])):  ?>
                     <li class="item-sous-menu"><a href="profil.php">Mon Profil</a></li>
+                    <?php endif;?>
                 </ul>
             </li>
             <li class="item-menu link-reservation"><a href="#">Reservation</a>
                 <!--            SOUS MENU RESERVATION-->
                 <ul class="sous-menu sm-reservation">
                     <li class="item-sous-menu"><a href="planning.php">Planning</a></li>
+                    <?php if (isset($_SESSION['user'])):  ?>
                     <li class="item-sous-menu"><a href="reservation-form.php">Reserver</a>
-                    <li class="item-sous-menu"><a href="reservation-form.php">Mes reservations</a></li>
+                    <li class="item-sous-menu"><a href="reservation.php">Mes reservations</a></li>
+                    <?php endif; ?>
                 </ul>
             </li>
+            <?php if (isset($_SESSION['user'])):  ?>
             <form action="" method="post" class="container-tools">
-                <button class="button-logout"><i class="fas fa-sign-out-alt"></i></button>
+                <button name="logout" class="button-logout"><i class="fas fa-sign-out-alt"></i></button>
             </form>
+            <?php endif; ?>
         </ul>
-
     </nav>
 </header>
 </body>
