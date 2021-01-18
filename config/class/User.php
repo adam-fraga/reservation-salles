@@ -2,10 +2,15 @@
 
 class User
 {
-    private $_id,
-            $_login,
-            $_password,
-            $_connected;
+    /**
+     * @var
+     */
+    private int $_id;
+    private string $_login;
+    private string $_password;
+    private $_connected;
+
+
 
     //Fonction d'hydratation de la classe utilisateur
     public function hydrate(array $data)

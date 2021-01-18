@@ -19,6 +19,7 @@ if (isset($_POST['submit'])) {
         //Methode inscription BDD
         $manager->insert($user);
         unset($user);
+        header('location:connexion.php');
     }
 }
 ?>

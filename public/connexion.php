@@ -12,12 +12,13 @@ $user = new User();
 //Nouvelle instance de userManager
 $manager = new UserManager($PDO);
 //Si action boutton
-if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['submit']) ) {
+if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['submit'])) {
     //Hydrate User avec $_POST
     $user->hydrate($_POST);
     //Connecte l'utilisateur renvoi un bool
-
-    if ( $manager->connect($user)) {
+    $connexion = $manager->connect($user);
+    if ($connexion == true) {
+        echo 'test';
         $user->setConnected(true);
         $_SESSION['user'] = $user;
         header('location:reservation-form.php');
